@@ -60,7 +60,7 @@ BLDrfCOL <- function(ORDEN_SUELO, MO_VALOR, ARCILLA, LIMO, ARENA){
                     ARCILLA = as.numeric(ARCILLA),
                     LIMO = as.numeric(LIMO), 
                     ARENA = as.numeric(ARENA))
-  BLD <- predict(model.rf, dat)$predicted
+  BLD <- predict(model.rf, dat, na.action="na.impute")$predicted
   return(BLD)
 }
 
